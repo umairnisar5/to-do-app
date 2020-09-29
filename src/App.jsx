@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import ToDoList from './ToDoList';
 
 
 
 const App = () => {
-    const [inutlist, setInputList] = useState("buy apple");
+    const [inutlist, setInputList] = useState("");
     const [ items, setItem] = useState([]);
 
     const itemEvent = (Event) => {
@@ -35,7 +36,9 @@ value={inutlist} onChange={itemEvent} />
 <ol>
     {/* <li> {inutlist} </li> */}
    { items.map ((itemval) => {
-        return <li>{itemval} </li>;
+      return  <ToDoList
+            text= {itemval}
+        />
     })}
     
 </ol>
