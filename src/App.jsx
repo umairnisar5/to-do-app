@@ -13,8 +13,8 @@ const App = () => {
     const listOfItem = () => {
         setItem((oldItem) => {
             return [...oldItem, inutlist];
-        })
-
+        });
+        setInputList("");
     };
 
 return (
@@ -28,7 +28,8 @@ return (
 <br/>
 <h1> ToDo List</h1>
 <br/>
-<input type="text" placeholder="Add  a Item " onChange={itemEvent} />
+<input type="text" placeholder="Add  a Item "
+value={inutlist} onChange={itemEvent} />
 <button onClick={listOfItem}  > + </button>
 
 <ol>
