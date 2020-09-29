@@ -4,9 +4,17 @@ import React, { useState } from 'react';
 
 const App = () => {
     const [inutlist, setInputList] = useState("buy apple");
+    const [ items, setItem] = useState([]);
 
     const itemEvent = (Event) => {
         setInputList(Event.target.value);
+    };
+
+    const listOfItem = () => {
+        setItem((oldItem) => {
+            return [...oldItem, inutlist];
+        })
+
     };
 
 return (
@@ -21,10 +29,14 @@ return (
 <h1> ToDo List</h1>
 <br/>
 <input type="text" placeholder="Add  a Item " onChange={itemEvent} />
-<button  > + </button>
+<button onClick={listOfItem}  > + </button>
 
 <ol>
-    <li> {inutlist} </li>
+    {/* <li> {inutlist} </li> */}
+   { items.map ((itemval) => {
+        return <li>{itemval} </li>;
+    })}
+    
 </ol>
 </div>
 </div>
