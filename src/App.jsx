@@ -17,6 +17,13 @@ const App = () => {
         });
         setInputList("");
     };
+    const  deleteItems  = (id) => {
+        setItem((oldItem) => {
+          return oldItem.filter((arrElem, index) => {
+                return index !== id;
+          })
+      })
+    };
 
 return (
  
@@ -35,9 +42,10 @@ value={inutlist} onChange={itemEvent} />
 
 <ol>
     {/* <li> {inutlist} </li> */}
-   { items.map ((itemval) => {
+   { items.map ((itemval, index) => {
       return  <ToDoList
-            text= {itemval}
+            text= {itemval} kay={index} id={index}
+            onSelect={deleteItems}
         />
     })}
     
